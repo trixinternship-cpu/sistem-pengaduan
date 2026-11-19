@@ -109,11 +109,14 @@
 
 <style>
 
+    /* 
+     * LEBAR DIATUR: 1300px (pas, tidak terlalu penuh ke ujung layar)
+     */
     .chat-container {
-        max-width: 800px;
+        max-width: 1300px;
+        width: 100%;
         margin: 0 auto;
     }
-
 
     .chat-header-logo {
         width: 52px;
@@ -128,22 +131,22 @@
         flex-shrink: 0;
     }
 
-
     .chat-header-logo img {
         max-height: 100%;
         max-width: 100%;
         object-fit: contain;
     }
 
-
+    /* 
+     * TINGGI CHAT: 650px 
+     */
     .chat-messages {
-        height: 500px;
+        height: 650px;
         overflow-y: auto;
         padding: 1.5rem;
         background: #f8fafc;
         border-radius: .6rem .6rem 0 0;
     }
-
 
     .chat-bubble {
         max-width: 75%;
@@ -152,18 +155,15 @@
         flex-direction: column;
     }
 
-
     .chat-bubble.mine {
         margin-left: auto;
         align-items: flex-end;
     }
 
-
     .chat-bubble.other {
         margin-right: auto;
         align-items: flex-start;
     }
-
 
     .chat-bubble .bubble-head {
         font-size: .75rem;
@@ -172,21 +172,17 @@
         font-weight: 600;
     }
 
-
     .chat-bubble.mine .bubble-head {
         color: #0033a0;
     }
-
 
     .chat-bubble.it .bubble-head {
         color: #10b981;
     }
 
-
     .chat-bubble.ai .bubble-head {
         color: #3b82f6;
     }
-
 
     .chat-bubble .bubble-body {
         padding: .7rem 1rem;
@@ -197,16 +193,13 @@
         overflow-wrap: break-word;
     }
 
-
     .chat-bubble .bubble-body p {
         margin: 0 0 .5rem 0;
     }
 
-
     .chat-bubble .bubble-body p:last-child {
         margin-bottom: 0;
     }
-
 
     .chat-bubble .bubble-body ul,
     .chat-bubble .bubble-body ol {
@@ -214,11 +207,9 @@
         padding-left: 1.25rem;
     }
 
-
     .chat-bubble .bubble-body li {
         margin-bottom: .35rem;
     }
-
 
     .chat-bubble .bubble-body em {
         font-style: italic;
@@ -226,18 +217,15 @@
         color: #64748b;
     }
 
-
     .chat-bubble .bubble-body strong {
         font-weight: 700;
     }
-
 
     .chat-bubble.mine .bubble-body {
         background: #0033a0;
         color: #fff;
         border-bottom-right-radius: 4px;
     }
-
 
     .chat-bubble.other .bubble-body {
         background: #fff;
@@ -246,14 +234,12 @@
         border-bottom-left-radius: 4px;
     }
 
-
     .chat-bubble.ai .bubble-body {
         background: #eff6ff;
         color: #1e3a8a;
         border: 1px solid #bfdbfe;
         border-bottom-left-radius: 4px;
     }
-
 
     .chat-bubble.it .bubble-body {
         background: #f0fdf4;
@@ -262,13 +248,11 @@
         border-bottom-left-radius: 4px;
     }
 
-
     .chat-bubble .bubble-time {
         font-size: .7rem;
         color: #94a3b8;
         margin-top: .25rem;
     }
-
 
     .chat-input {
         padding: 1rem;
@@ -277,12 +261,10 @@
         border-radius: 0 0 .6rem .6rem;
     }
 
-
     .chat-input input {
         border-radius: 20px;
         padding: .6rem 1rem;
     }
-
 
     .chat-input button {
         border-radius: 20px;
@@ -294,12 +276,10 @@
         justify-content: center;
     }
 
-
     #sendBtn:disabled {
         opacity: .7;
         cursor: not-allowed;
     }
-
 
     /*
     |--------------------------------------------------------------------------
@@ -315,7 +295,6 @@
         max-width: 75%;
     }
 
-
     .ai-loading .loading-avatar {
         width: 32px;
         height: 32px;
@@ -330,7 +309,6 @@
         font-size: .85rem;
     }
 
-
     .ai-loading .loading-bubble {
         background: #eff6ff;
         color: #1e3a8a;
@@ -342,13 +320,11 @@
         line-height: 1.55;
     }
 
-
     .ai-loading .loading-dots {
         display: inline-flex;
         margin-left: 2px;
         min-width: 18px;
     }
-
 
     .ai-loading .loading-dots span {
         animation: aiDot 1.4s infinite;
@@ -356,19 +332,15 @@
         font-weight: bold;
     }
 
-
     .ai-loading .loading-dots span:nth-child(2) {
         animation-delay: .2s;
     }
-
 
     .ai-loading .loading-dots span:nth-child(3) {
         animation-delay: .4s;
     }
 
-
     @keyframes aiDot {
-
         0%, 60%, 100% {
             opacity: .3;
         }
@@ -376,15 +348,12 @@
         30% {
             opacity: 1;
         }
-
     }
-
 
     .welcome-state {
         text-align: center;
         padding: 2rem 1rem;
     }
-
 
     .welcome-logo {
         width: 160px;
@@ -401,13 +370,11 @@
         animation: pulse 3s infinite;
     }
 
-
     .welcome-logo img {
         max-height: 100%;
         max-width: 100%;
         object-fit: contain;
     }
-
 
     .welcome-title {
         font-weight: 700;
@@ -416,7 +383,6 @@
         font-size: 1.15rem;
     }
 
-
     .welcome-text {
         color: #64748b;
         font-size: .9rem;
@@ -424,7 +390,6 @@
         max-width: 500px;
         margin: 0 auto 1.5rem;
     }
-
 
     .welcome-tips {
         display: inline-flex;
@@ -438,7 +403,6 @@
         max-width: 420px;
     }
 
-
     .tip-item {
         display: flex;
         align-items: center;
@@ -447,9 +411,7 @@
         color: #475569;
     }
 
-
     @keyframes pulse {
-
         0%, 100% {
             transform: scale(1);
         }
@@ -457,34 +419,27 @@
         50% {
             transform: scale(1.05);
         }
-
     }
 
-
     @media (max-width: 768px) {
-
         .chat-messages {
-            height: 400px;
+            height: 450px;
             padding: 1rem;
         }
-
 
         .chat-bubble {
             max-width: 88%;
         }
 
-
         .ai-loading {
             max-width: 88%;
         }
-
 
         .welcome-logo {
             width: 120px;
             height: 120px;
             padding: 18px;
         }
-
     }
 
 </style>
@@ -497,7 +452,6 @@
 <script>
 
 document.addEventListener('DOMContentLoaded', function () {
-
 
     const chatMessages = document.getElementById('chatMessages');
 
@@ -515,17 +469,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const chatId = {{ $chat->id }};
 
-
     const logoUrl = @json(asset('images/logo-trix.png'));
-
 
     const aiQuotaText = document.getElementById('aiQuotaText');
 
     const aiQuotaBadge = document.getElementById('aiQuotaBadge');
 
-
     const isIT = {{ auth()->user()->role === 'it' ? 'true' : 'false' }};
-
 
     const pelaporName = @json($complaint->user->name ?? '-');
 
@@ -540,12 +490,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | ESCAPE HTML
-    |--------------------------------------------------------------------------
-    */
-
     function escapeHtml(text) {
 
         const div = document.createElement('div');
@@ -558,31 +502,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | FORMAT PESAN AI
-    |--------------------------------------------------------------------------
-    */
-
     function formatMessage(text) {
 
         let html = escapeHtml(text ?? '');
 
+        html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 
-        html = html.replace(
-            /\*\*(.+?)\*\*/g,
-            '<strong>$1</strong>'
-        );
-
-
-        html = html.replace(
-            /_(.+?)_/g,
-            '<em>$1</em>'
-        );
-
+        html = html.replace(/_(.+?)_/g, '<em>$1</em>');
 
         const lines = html.split('\n');
-
 
         let output = '';
 
@@ -596,7 +524,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (/^[-•]\s+/.test(trimmed)) {
 
-
                 if (inList !== 'ul') {
 
                     if (inList === 'ol') {
@@ -609,14 +536,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 }
 
-
                 output += '<li>' +
                     trimmed.replace(/^[-•]\s+/, '') +
                     '</li>';
 
 
             } else if (/^\d+\.\s+/.test(trimmed)) {
-
 
                 if (inList !== 'ol') {
 
@@ -630,14 +555,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 }
 
-
                 output += '<li>' +
                     trimmed.replace(/^\d+\.\s+/, '') +
                     '</li>';
 
 
             } else if (trimmed === '') {
-
 
                 if (inList) {
 
@@ -652,7 +575,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             } else {
 
-
                 if (inList) {
 
                     output += inList === 'ol'
@@ -662,7 +584,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     inList = null;
 
                 }
-
 
                 output += '<p>' + trimmed + '</p>';
 
@@ -679,195 +600,95 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-
         return output;
 
     }
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | WELCOME STATE
-    |--------------------------------------------------------------------------
-    */
-
     function renderWelcomeState() {
-
 
         if (isIT) {
 
             return `
-
                 <div class="welcome-state">
-
                     <div class="welcome-logo">
-
                         <img src="${logoUrl}" alt="TRIX">
-
                     </div>
-
-
                     <h5 class="welcome-title">
-
                         Chat dengan ${escapeHtml(pelaporName)}
-
                     </h5>
-
-
                     <p class="welcome-text">
-
                         Ini percakapan antara pelapor dan TRIX Assistant.
                         Anda bisa ikut membantu kapan saja.
-
                     </p>
-
-
                     <div class="welcome-tips">
-
-
                         <div class="tip-item">
-
                             <i class="bi bi-person-badge text-primary"></i>
-
                             <span>
-
                                 Pelapor:
-                                <strong>
-                                    ${escapeHtml(pelaporName)}
-                                </strong>
-
+                                <strong>${escapeHtml(pelaporName)}</strong>
                             </span>
-
                         </div>
-
-
                         <div class="tip-item">
-
                             <i class="bi bi-pc-display text-info"></i>
-
                             <span>
-
                                 Perangkat:
-                                <strong>
-                                    ${escapeHtml(pcCode)}
-                                </strong>
-
+                                <strong>${escapeHtml(pcCode)}</strong>
                             </span>
-
                         </div>
-
-
                         <div class="tip-item">
-
                             <i class="bi bi-tag text-warning"></i>
-
                             <span>
-
                                 Kategori:
-                                <strong>
-                                    ${escapeHtml(catName)}
-                                </strong>
-
+                                <strong>${escapeHtml(catName)}</strong>
                             </span>
-
                         </div>
-
-
                     </div>
-
                 </div>
-
             `;
 
         }
 
 
         return `
-
             <div class="welcome-state">
-
                 <div class="welcome-logo">
-
                     <img src="${logoUrl}" alt="TRIX">
-
                 </div>
-
-
                 <h5 class="welcome-title">
-
                     Halo! Saya TRIX Assistant 👋
-
                 </h5>
-
-
                 <p class="welcome-text">
-
                     Saya siap membantu menyelesaikan kendala IT Anda.
                     Ceritakan masalahnya, saya akan bantu.
-
                 </p>
-
-
                 <div class="welcome-tips">
-
-
                     <div class="tip-item">
-
                         <i class="bi bi-lightbulb text-warning"></i>
-
-                        <span>
-                            Jelaskan kendala sedetail mungkin
-                        </span>
-
+                        <span>Jelaskan kendala sedetail mungkin</span>
                     </div>
-
-
                     <div class="tip-item">
-
                         <i class="bi bi-chat-dots text-primary"></i>
-
-                        <span>
-                            Sebutkan pesan error jika ada
-                        </span>
-
+                        <span>Sebutkan pesan error jika ada</span>
                     </div>
-
-
                     <div class="tip-item">
-
                         <i class="bi bi-info-circle text-info"></i>
-
-                        <span>
-                            Kuota AI 50x balasan per hari
-                        </span>
-
+                        <span>Kuota AI 50x balasan per hari</span>
                     </div>
-
-
                 </div>
-
             </div>
-
         `;
 
     }
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | RENDER MESSAGES
-    |--------------------------------------------------------------------------
-    */
-
     function renderMessages(messages) {
-
 
         if (!messages || messages.length === 0) {
 
-            chatMessages.innerHTML =
-                renderWelcomeState();
+            chatMessages.innerHTML = renderWelcomeState();
 
             return;
 
@@ -881,21 +702,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         messages.forEach(m => {
 
-
             if (m.date !== lastDate) {
 
                 html += `
-
                     <div class="text-center my-3">
-
                         <span class="badge bg-secondary bg-opacity-50">
-
                             ${escapeHtml(m.date)}
-
                         </span>
-
                     </div>
-
                 `;
 
                 lastDate = m.date;
@@ -907,71 +721,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const isAi = m.sender_type === 'ai';
 
-            const isItSender =
-                m.sender_type === 'it';
+            const isItSender = m.sender_type === 'it';
 
 
-            let cls =
-                isMine ? 'mine' : 'other';
-
+            let cls = isMine ? 'mine' : 'other';
 
             if (isAi) {
-
                 cls = 'other ai';
-
             }
 
-
             if (isItSender && !isMine) {
-
                 cls = 'other it';
-
             }
 
 
             let bodyContent;
 
-
             if (isAi) {
 
-                bodyContent =
-                    formatMessage(m.message);
+                bodyContent = formatMessage(m.message);
 
             } else {
 
-                bodyContent =
-                    escapeHtml(m.message)
-                    .replace(/\n/g, '<br>');
+                bodyContent = escapeHtml(m.message).replace(/\n/g, '<br>');
 
             }
 
 
             html += `
-
                 <div class="chat-bubble ${cls}">
-
                     <div class="bubble-head">
-
                         ${escapeHtml(m.sender_name)}
-
                     </div>
-
-
                     <div class="bubble-body">
-
                         ${bodyContent}
-
                     </div>
-
-
                     <div class="bubble-time">
-
                         ${escapeHtml(m.time)}
-
                     </div>
-
                 </div>
-
             `;
 
         });
@@ -979,54 +767,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
         chatMessages.innerHTML = html;
 
-
-        chatMessages.scrollTop =
-            chatMessages.scrollHeight;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
 
     }
 
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | UPDATE QUOTA
-    |--------------------------------------------------------------------------
-    */
 
     function updateQuotaBadge(quota) {
 
-
-        if (
-            !quota ||
-            !aiQuotaText ||
-            !aiQuotaBadge
-        ) {
+        if (!quota || !aiQuotaText || !aiQuotaBadge) {
 
             return;
 
         }
 
-
-        aiQuotaText.textContent =
-            quota.remaining;
-
+        aiQuotaText.textContent = quota.remaining;
 
         if (quota.remaining === 0) {
 
-            aiQuotaBadge.className =
-                'badge bg-danger';
-
+            aiQuotaBadge.className = 'badge bg-danger';
 
         } else if (quota.remaining <= 10) {
 
-            aiQuotaBadge.className =
-                'badge bg-warning text-dark';
-
+            aiQuotaBadge.className = 'badge bg-warning text-dark';
 
         } else {
 
-            aiQuotaBadge.className =
-                'badge bg-info';
+            aiQuotaBadge.className = 'badge bg-info';
 
         }
 
@@ -1034,72 +801,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | AI LOADING
-    |--------------------------------------------------------------------------
-    */
-
     function showAiLoading() {
 
-
-        if (
-            document.getElementById(
-                'aiLoadingMessage'
-            )
-        ) {
+        if (document.getElementById('aiLoadingMessage')) {
 
             return;
 
         }
 
 
-        const div =
-            document.createElement('div');
+        const div = document.createElement('div');
 
+        div.id = 'aiLoadingMessage';
 
-        div.id =
-            'aiLoadingMessage';
-
-
-        div.className =
-            'ai-loading';
-
+        div.className = 'ai-loading';
 
         div.innerHTML = `
-
             <div class="loading-avatar">
-
                 <i class="bi bi-robot"></i>
-
             </div>
-
-
             <div class="loading-bubble">
-
-                <span>
-                    TRIX Assistant sedang membalas
-                </span>
-
-
+                <span>TRIX Assistant sedang membalas</span>
                 <span class="loading-dots">
-
                     <span>.</span>
                     <span>.</span>
                     <span>.</span>
-
                 </span>
-
             </div>
-
         `;
 
 
         chatMessages.appendChild(div);
 
-
-        chatMessages.scrollTop =
-            chatMessages.scrollHeight;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
 
     }
 
@@ -1107,11 +841,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function hideAiLoading() {
 
-        const loading =
-            document.getElementById(
-                'aiLoadingMessage'
-            );
-
+        const loading = document.getElementById('aiLoadingMessage');
 
         if (loading) {
 
@@ -1123,101 +853,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | LOAD MESSAGES
-    |--------------------------------------------------------------------------
-    */
-
     async function loadMessages() {
-
 
         try {
 
-
-            const res =
-                await fetch(
-                    `/chat/${chatId}/fetch`,
-                    {
-                        method: 'GET',
-
-                        headers: {
-                            'Accept':
-                                'application/json',
-
-                            'X-Requested-With':
-                                'XMLHttpRequest'
-                        },
-
-                        cache: 'no-store'
-                    }
-                );
+            const res = await fetch(`/chat/${chatId}/fetch`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                cache: 'no-store'
+            });
 
 
             if (!res.ok) {
 
-                throw new Error(
-                    'Server error: ' +
-                    res.status
-                );
+                throw new Error('Server error: ' + res.status);
 
             }
 
 
-            const data =
-                await res.json();
+            const data = await res.json();
+
+            const messages = Array.isArray(data.messages) ? data.messages : [];
+
+            const newLastId = messages.length ? messages[messages.length - 1].id : 0;
 
 
-            const messages =
-                Array.isArray(
-                    data.messages
-                )
-                    ? data.messages
-                    : [];
+            if (newLastId !== lastMessageId) {
 
+                lastMessageId = newLastId;
 
-            const newLastId =
-                messages.length
-                    ? messages[
-                        messages.length - 1
-                      ].id
-                    : 0;
-
-
-            /*
-             * Render jika ada perubahan.
-             */
-
-            if (
-                newLastId !==
-                lastMessageId
-            ) {
-
-                lastMessageId =
-                    newLastId;
-
-
-                renderMessages(
-                    messages
-                );
+                renderMessages(messages);
 
             }
 
-
-            /*
-             * Kalau sudah ada balasan AI,
-             * hilangkan indikator loading.
-             */
 
             if (!isIT) {
 
-                const hasAiReply =
-                    messages.some(
-                        message =>
-                            message.sender_type ===
-                            'ai'
-                    );
-
+                const hasAiReply = messages.some(message => message.sender_type === 'ai');
 
                 if (hasAiReply) {
 
@@ -1230,19 +905,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (data.ai_quota) {
 
-                updateQuotaBadge(
-                    data.ai_quota
-                );
+                updateQuotaBadge(data.ai_quota);
 
             }
 
 
         } catch (err) {
 
-            console.error(
-                'Load messages error:',
-                err
-            );
+            console.error('Load messages error:', err);
 
         }
 
@@ -1250,20 +920,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | PESAN LOKAL
-    |--------------------------------------------------------------------------
-    */
-
     function appendLocalMessage(text) {
 
-
-        const welcome =
-            chatMessages.querySelector(
-                '.welcome-state'
-            );
-
+        const welcome = chatMessages.querySelector('.welcome-state');
 
         if (welcome) {
 
@@ -1272,88 +931,45 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        const div =
-            document.createElement('div');
+        const div = document.createElement('div');
+
+        div.className = 'chat-bubble mine';
 
 
-        div.className =
-            'chat-bubble mine';
+        const now = new Date();
 
-
-        const now =
-            new Date();
-
-
-        const time =
-            now.toLocaleTimeString(
-                'id-ID',
-                {
-                    hour: '2-digit',
-                    minute: '2-digit'
-                }
-            );
+        const time = now.toLocaleTimeString('id-ID', {
+            hour: '2-digit',
+            minute: '2-digit'
+        });
 
 
         div.innerHTML = `
-
-            <div class="bubble-head">
-                Anda
-            </div>
-
-
-            <div class="bubble-body">
-
-                ${escapeHtml(text)}
-
-            </div>
-
-
-            <div class="bubble-time">
-
-                ${time}
-
-            </div>
-
+            <div class="bubble-head">Anda</div>
+            <div class="bubble-body">${escapeHtml(text)}</div>
+            <div class="bubble-time">${time}</div>
         `;
 
 
         chatMessages.appendChild(div);
 
-
-        chatMessages.scrollTop =
-            chatMessages.scrollHeight;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
 
     }
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | RESET TOMBOL
-    |--------------------------------------------------------------------------
-    */
-
     function resetSendButton() {
-
 
         sending = false;
 
+        sendBtn.disabled = false;
 
-        sendBtn.disabled =
-            false;
+        sendBtn.dataset.sending = 'false';
 
+        sendIcon.className = 'bi bi-send';
 
-        sendBtn.dataset.sending =
-            'false';
-
-
-        sendIcon.className =
-            'bi bi-send';
-
-
-        messageInput.disabled =
-            false;
-
+        messageInput.disabled = false;
 
         messageInput.focus();
 
@@ -1361,14 +977,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | KIRIM PESAN
-    |--------------------------------------------------------------------------
-    */
-
     async function sendMessage() {
-
 
         if (sending) {
 
@@ -1377,9 +986,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        const msg =
-            messageInput.value.trim();
-
+        const msg = messageInput.value.trim();
 
         if (!msg) {
 
@@ -1390,37 +997,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         sending = true;
 
+        sendBtn.disabled = true;
 
-        sendBtn.disabled =
-            true;
+        sendBtn.dataset.sending = 'true';
 
+        sendIcon.className = 'bi bi-send';
 
-        sendBtn.dataset.sending =
-            'true';
-
-
-        /*
-         * Tetap icon SEND.
-         */
-
-        sendIcon.className =
-            'bi bi-send';
-
-
-        /*
-         * Tampilkan pesan pelapor langsung.
-         */
 
         appendLocalMessage(msg);
 
-
-        /*
-         * Kalau pelapor, langsung tampilkan
-         * indikator TRIX Assistant sedang membalas.
-         *
-         * Diletakkan SEBELUM await fetch()
-         * supaya tidak menunggu AI selesai.
-         */
 
         if (!isIT) {
 
@@ -1429,67 +1014,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
 
-        /*
-         * Kosongkan input.
-         */
-
         messageInput.value = '';
 
 
         try {
 
+            const controller = new AbortController();
 
-            const controller =
-                new AbortController();
-
-
-            /*
-             * Jangan menunggu request selamanya.
-             */
-
-            const timeout =
-                setTimeout(
-                    function () {
-
-                        controller.abort();
-
-                    },
-                    30000
-                );
+            const timeout = setTimeout(() => {
+                controller.abort();
+            }, 30000);
 
 
-            const res =
-                await fetch(
-                    `/chat/${chatId}/send`,
-                    {
-                        method: 'POST',
-
-                        headers: {
-
-                            'Content-Type':
-                                'application/json',
-
-                            'X-CSRF-TOKEN':
-                                csrfToken,
-
-                            'Accept':
-                                'application/json',
-
-                            'X-Requested-With':
-                                'XMLHttpRequest'
-
-                        },
-
-                        body: JSON.stringify({
-
-                            message: msg
-
-                        }),
-
-                        signal: controller.signal
-
-                    }
-                );
+            const res = await fetch(`/chat/${chatId}/send`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({
+                    message: msg
+                }),
+                signal: controller.signal
+            });
 
 
             clearTimeout(timeout);
@@ -1497,138 +1046,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!res.ok) {
 
-
-                let errorMessage =
-                    'Server error: ' +
-                    res.status;
-
+                let errorMessage = 'Server error: ' + res.status;
 
                 try {
 
+                    const errorData = await res.json();
 
-                    const errorData =
-                        await res.json();
+                    if (errorData.message) {
 
-
-                    if (
-                        errorData.message
-                    ) {
-
-                        errorMessage =
-                            errorData.message;
+                        errorMessage = errorData.message;
 
                     }
 
-
-                } catch (_) {
-
-                    // Abaikan jika response bukan JSON.
-
-                }
+                } catch (_) {}
 
 
-                throw new Error(
-                    errorMessage
-                );
+                throw new Error(errorMessage);
 
             }
 
 
-            /*
-             * Setelah server menerima pesan,
-             * ambil data terbaru beberapa kali.
-             */
-
-            setTimeout(
-                loadMessages,
-                300
-            );
-
-
-            setTimeout(
-                loadMessages,
-                1000
-            );
-
-
-            setTimeout(
-                loadMessages,
-                2000
-            );
-
-
-            setTimeout(
-                loadMessages,
-                4000
-            );
-
-
-            setTimeout(
-                loadMessages,
-                7000
-            );
-
-
-            setTimeout(
-                loadMessages,
-                10000
-            );
+            setTimeout(loadMessages, 300);
+            setTimeout(loadMessages, 1000);
+            setTimeout(loadMessages, 2000);
+            setTimeout(loadMessages, 4000);
+            setTimeout(loadMessages, 7000);
+            setTimeout(loadMessages, 10000);
 
 
         } catch (error) {
 
+            console.error('Send error:', error);
 
-            console.error(
-                'Send error:',
-                error
-            );
+            setTimeout(loadMessages, 1000);
+            setTimeout(loadMessages, 3000);
+            setTimeout(loadMessages, 6000);
 
+            if (error.name !== 'AbortError') {
 
-            /*
-             * Kalau timeout, pesan mungkin
-             * sebenarnya sudah diproses server.
-             * Tetap lakukan polling.
-             */
-
-            setTimeout(
-                loadMessages,
-                1000
-            );
-
-
-            setTimeout(
-                loadMessages,
-                3000
-            );
-
-
-            setTimeout(
-                loadMessages,
-                6000
-            );
-
-
-            if (
-                error.name !==
-                'AbortError'
-            ) {
-
-                console.error(
-                    'Pesan gagal dikirim:',
-                    error.message
-                );
+                console.error('Pesan gagal dikirim:', error.message);
 
             }
 
 
         } finally {
-
-
-            /*
-             * Jika request selesai tetapi balasan AI
-             * belum terlihat di polling, loading tetap
-             * bisa menunggu polling berikutnya.
-             */
 
             resetSendButton();
 
@@ -1638,72 +1099,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | KLIK SEND
-    |--------------------------------------------------------------------------
-    */
+    sendBtn.addEventListener('click', function (e) {
 
-    sendBtn.addEventListener(
-        'click',
-        function (e) {
+        e.preventDefault();
+
+        sendMessage();
+
+    });
+
+
+
+    messageInput.addEventListener('keydown', function (e) {
+
+        if (e.key === 'Enter' && !e.shiftKey) {
 
             e.preventDefault();
 
             sendMessage();
 
         }
-    );
+
+    });
 
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | ENTER UNTUK KIRIM
-    |--------------------------------------------------------------------------
-    */
-
-    messageInput.addEventListener(
-        'keydown',
-        function (e) {
-
-
-            if (
-                e.key === 'Enter' &&
-                !e.shiftKey
-            ) {
-
-                e.preventDefault();
-
-                sendMessage();
-
-            }
-
-        }
-    );
-
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | LOAD AWAL
-    |--------------------------------------------------------------------------
-    */
 
     loadMessages();
 
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | POLLING SETIAP 3 DETIK
-    |--------------------------------------------------------------------------
-    */
-
-    setInterval(
-        loadMessages,
-        3000
-    );
+    setInterval(loadMessages, 3000);
 
 
 });

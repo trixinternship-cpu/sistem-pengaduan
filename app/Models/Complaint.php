@@ -4,10 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Complaint extends Model
 {
     use HasFactory;
+
+    protected static function booted(): void
+    {
+        // Pengaduan yang sudah diarsipkan otomatis tidak muncul di halaman aktif.
+        static::addGlobalScope('notArchived', function (Builder $query) {
+            $query->whereNull('complaints.archived_at');
+        });
+    }
 
     protected $fillable = [
         'nomor_pengaduan',
@@ -27,12 +36,16 @@ class Complaint extends Model
         'tanggal_selesai',
         'is_recurring',
         'related_complaint_id',
+        'archived_at',
+        'archive_after',
     ];
 
     protected $casts = [
         'when' => 'datetime',
         'tanggal_selesai' => 'datetime',
         'is_recurring' => 'boolean',
+        'archived_at' => 'datetime',
+        'archive_after' => 'datetime',
     ];
 
     public function user()
@@ -74,6 +87,11 @@ class Complaint extends Model
     public function chat()
     {
         return $this->hasOne(Chat::class);
+    }
+
+    public function scopeArchived(Builder $query): Builder
+    {
+        return $query->withoutGlobalScope('notArchived')->whereNotNull('complaints.archived_at');
     }
 
     public function scopeSolved($query)

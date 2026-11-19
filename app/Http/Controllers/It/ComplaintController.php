@@ -20,14 +20,21 @@ class ComplaintController extends Controller
         $complaints = Complaint::with(['pc', 'category', 'user', 'teknisi'])
             ->when($status, fn ($q) => $q->where('status', $status))
             ->latest()
-            ->paginate(15);
+            ->paginate(10);
 
         return view('it.complaints.index', compact('complaints', 'status'));
     }
 
     public function show(Complaint $complaint)
     {
-        $complaint->load(['pc', 'category', 'user', 'teknisi', 'handling.teknisi', 'attachments']);
+        $complaint->load([
+            'pc',
+            'category',
+            'user',
+            'teknisi',
+            'handling.teknisi',
+            'attachments'
+        ]);
 
         $similar = $this->recurring->findSimilar(
             $complaint->pc_id,
@@ -54,7 +61,10 @@ class ComplaintController extends Controller
         $complaint->update([
             'status' => $data['status'],
             'teknisi_id' => auth()->id(),
-            'tanggal_selesai' => $data['status'] === 'selesai' ? now() : $complaint->tanggal_selesai,
+            'tanggal_selesai' => $data['status'] === 'selesai'
+                ? now()
+                : $complaint->tanggal_selesai,
+            'archive_after' => null,
         ]);
 
         // Notif ke pelapor
@@ -92,4 +102,5 @@ class ComplaintController extends Controller
 
         return back()->with('success', 'Pengaduan ditandai sebagai kendala berulang.');
     }
+
 }

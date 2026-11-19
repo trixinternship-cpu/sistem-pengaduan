@@ -20,12 +20,12 @@ class ChatController extends Controller
         $user = Auth::user();
 
         if ($user->role === 'it') {
-            $chats = Chat::with(['complaint.pc', 'complaint.category', 'pelapor', 'latestMessage'])
+            $chats = Chat::whereHas('complaint')->with(['complaint.pc', 'complaint.category', 'pelapor', 'latestMessage'])
                 ->orderByDesc('last_message_at')
                 ->orderByDesc('created_at')
                 ->paginate(20);
         } else {
-            $chats = Chat::with(['complaint.pc', 'complaint.category', 'teknisi', 'latestMessage'])
+            $chats = Chat::whereHas('complaint')->with(['complaint.pc', 'complaint.category', 'teknisi', 'latestMessage'])
                 ->where('pelapor_id', $user->id)
                 ->orderByDesc('last_message_at')
                 ->paginate(20);
@@ -56,6 +56,8 @@ class ChatController extends Controller
         if ($user->role === 'pelapor' && $chat->pelapor_id !== $user->id) {
             abort(403);
         }
+
+        abort_if(!$chat->complaint, 404);
 
         $messages = $chat->messages()
             ->with('user')
@@ -96,6 +98,8 @@ class ChatController extends Controller
         if ($user->role === 'pelapor' && $chat->pelapor_id !== $user->id) {
             abort(403);
         }
+
+        abort_if(!$chat->complaint, 404);
 
         $data = $request->validate([
             'message' => ['required', 'string', 'max:1000'],

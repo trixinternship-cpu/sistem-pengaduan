@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\Pelapor\DashboardController as PelaporDashboard;
 use App\Http\Controllers\Pelapor\ComplaintController as PelaporComplaint;
 use App\Http\Controllers\It\DashboardController as ItDashboard;
@@ -25,6 +26,12 @@ Route::middleware(['auth'])->prefix('notifications')->name('notifications.')->gr
     Route::get('/', [NotificationController::class, 'index'])->name('index');
     Route::post('/{id}/read', [NotificationController::class, 'markAsRead'])->name('read');
     Route::post('/read-all', [NotificationController::class, 'markAllAsRead'])->name('read-all');
+});
+
+// ==================== ARSIP PENGADUAN ====================
+Route::middleware(['auth', 'role:it,pelapor'])->prefix('arsip')->name('archives.')->group(function () {
+    Route::get('/', [ArchiveController::class, 'index'])->name('index');
+    Route::post('/{id}/restore', [ArchiveController::class, 'restore'])->whereNumber('id')->name('restore');
 });
 
 // ==================== CHAT ====================
